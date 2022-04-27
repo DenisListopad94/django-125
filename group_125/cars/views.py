@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse,HttpResponseNotFound
+from cars.models import Car
 # Create your views here.
 lst_car=['bmw','volvo','tesla']
 
@@ -12,21 +13,23 @@ lst_car=['bmw','volvo','tesla']
 #     'cars': lst_car,
 #     'urls':cars_models
 # }
+def all_cars(request):
+    cars = Car.objects.all()
+    return render(request,'cars/all_cars.html',{'cars':cars})
 
-
-def Car(request):
+def car(request):
     return HttpResponse('My cars')
 
 def info(request):
     return HttpResponse('Info about cars')
 
 def main(request):
-    return render(request, 'cars\index.html', {'cars': lst_car})
+    return render(request, 'cars/index.html', {'cars': lst_car})
 
 def bmw(request):
-    return render(request, 'cars\BMW.html', {'cars': lst_car})
+    return render(request, 'cars/BMW.html', {'cars': lst_car})
 def volvo(request):
-    return render(request, 'cars\VOLVO.html', {'cars': lst_car})
+    return render(request, 'cars/VOLVO.html', {'cars': lst_car})
 def tesla(request):
     return render(request,'cars/tesla.html',{'cars':lst_car})
 
