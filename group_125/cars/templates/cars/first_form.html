@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+<html lang="en">
+{% block page_content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Машины</title>
+</head>
+<body>
+    <h2>Машины</h2>
+    <form action="{% url 'form_car' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+</html>
+{% endblock %}

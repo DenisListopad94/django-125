@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{%load static %}
+<html lang="en">
+{% block page_content %}
+    <h1>All cars</h1>
+{% for car in cars %}
+<div class="card mb-5" style="width: 18rem;">
+  <ul class="list-group list-group-flush pink-bg">
+    <li class="list-group-item"  style="background-color: pink;">{{car.title}}</li>
+    <li class="list-group-item">{{car.costs}}</li>
+    <li class="list-group-item">{{car.create}}</li>
+  </ul>
+</div>
+{% endfor %}
+{% endblock %}

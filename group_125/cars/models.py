@@ -40,3 +40,9 @@ class Car(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    topic = models.CharField(max_length=40)
+    comment = models.TextField()
+    def __str__(self):
+        return self.topic
